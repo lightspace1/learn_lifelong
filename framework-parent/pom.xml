@@ -138,7 +138,6 @@
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
                 <version>${elasticsearch.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
             <dependency>
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
