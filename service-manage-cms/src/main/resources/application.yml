@@ -1,0 +1,33 @@
+server:
+  port: 31001
+spring:
+  application:
+    name: service-manage-cms
+  data:
+    mongodb:
+      uri:  mongodb://root:root@localhost:27017
+      database: edu_cms
+  freemarker:
+    cache: false
+    settings:
+      template_update_delay: 0
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+    org.springframework.data.mongodb.repository.Query: DEBUG
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  username: guest
+  password: guest
+  virtualHost: /
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:50101/eureka/,http://localhost:50102/eureka/}
+  instance:
+    prefer-ip-address:  true
+    ip-address: ${IP_ADDRESS:127.0.0.1}
+    instance-id: ${spring.application.name}:${server.port}
