@@ -1,0 +1,45 @@
+server:
+  port: 31200
+spring:
+  application:
+    name: service-manage-course
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/course?characterEncoding=utf-8
+      username: root
+      password: my_password
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 10000
+      testOnBorrow: true
+      testOnReturn: false
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+pagehelper:
+  helper-dialect: mysql
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:50101/eureka/,http://localhost:50102/eureka/}
+  instance:
+    prefer-ip-address:  true
+    ip-address: ${IP_ADDRESS:127.0.0.1}
+    instance-id: ${spring.application.name}:${server.port}
+
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 6000
+course-publish:
+  siteId: 5b30cba5f58b4411fc6cb1e5
+  templateId: 5b345a6b94db44269cb2bfec
+  previewUrl: http://www.lightspace.com/cms/preview/
+  pageWebPath: /course/detail/
+  pagePhysicalPath: /course/detail/
+  dataUrlPre: http://localhost:31200/course/courseview/

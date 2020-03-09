@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EntityScan("com.xuecheng.framework.domain.cms")
+@EntityScan("com.lightspace.framework.domain.cms")
 @ComponentScan(basePackages={"com.lightspace.framework"})
 @ComponentScan(basePackages={"com.lightspace.manage_cms_client"})
 public class ManageCmsClientApplication {
