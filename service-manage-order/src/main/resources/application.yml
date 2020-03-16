@@ -1,0 +1,41 @@
+server:
+  port: ${PORT:31500}
+spring:
+  application:
+    name: service-manage-order
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/xc_order?characterEncoding=utf-8
+      username: root
+      password: mysql
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 10000
+      testOnBorrow: true
+      testOnReturn: false
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:50101/eureka/,http://localhost:50102/eureka/
+  instance:
+    prefer-ip-address:  true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 6000
