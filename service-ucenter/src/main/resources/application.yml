@@ -1,0 +1,35 @@
+server:
+  port: 40300
+spring:
+  application:
+    name: service-ucenter
+  datasource:
+    druid:
+      url: ${MYSQL_URL:jdbc:mysql://localhost:3306/xc_user?characterEncoding=utf-8}
+      username: root
+      password: mysql
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 10000
+      testOnBorrow: true
+      testOnReturn: false
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:50101/eureka/}
+  instance:
+    prefer-ip-address:  true
+    ip-address: ${IP_ADDRESS:127.0.0.1}
+    instance-id: ${spring.application.name}:${server.port}
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 6000
