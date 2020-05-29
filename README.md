@@ -2,7 +2,7 @@
 This is a microservices website for education
 
 ## Feature
-- authatication
+- authentication
 - course management
 - media management
 - veido play
