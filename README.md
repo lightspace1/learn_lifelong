@@ -9,5 +9,5 @@ This is a microservices website for education
 - search
 - order management
 
-## Enviroment
+## Environment
 Java, Spring Boot, Mysql, MongoDB, Spring MVC, Spring Cloud, Spring Data, Mybaits
