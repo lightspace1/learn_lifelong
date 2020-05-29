@@ -7,7 +7,7 @@ This is a microservices website for education
 - media management
 - veido play
 - search
-- order
+- order management
 
 ## Enviroment
 Java, Spring Boot, Mysql, MongoDB, Spring MVC, Spring Cloud, Spring Data, Mybaits
